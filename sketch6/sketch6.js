@@ -1,12 +1,3 @@
-// Removing Objects from Arrays
-// Code! Programming with p5.js
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/beginners/p5js/7.5-removing-objects-from-array.html
-// https://youtu.be/tA_ZgruFF9k
-
-// Main Sketch: https://editor.p5js.org/codingtrain/sketches/smC4Jedi
-// Trail Sketch: https://editor.p5js.org/codingtrain/sketches/9Ve9S6Mx
-
 let bubbles = [];
 let mySound;
 
@@ -16,8 +7,12 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
-  for (let i = 0; i < 4; i++) {
+  var cnv = createCanvas(windowWidth/2, windowHeight/2);
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+
+  for (let i = 0; i < 9; i++) {
     let r = random(20, 40);
     let x = random(r, (width-r));
     let y = random(r, (height-r));
@@ -82,22 +77,16 @@ class Bubble {
   move() {
     this.x = this.x + random(2, 4) * this.xdirection;
     this.y = this.y + random(2, 3) * this.ydirection;
-    if (this.x > width - this.r || this.x < this.r) {
-        this.xdirection *= -1;
-    }
-    if (this.y > height - this.r || this.y < this.r) {
-        this.ydirection *= -1;
-    }
-    this.xswitch = this.xswitch - 1;
-    this.yswitch = this.yswitch - 1;
-    if (this.xswitch < 0) {
+    if (this.x > width - this.r || this.x < this.r || this.xswitch < 0) {
         this.xdirection *= -1;
         this.xswitch = random(150);
     }
-    if (this.yswitch < 0) {
+    if (this.y > height - this.r || this.y < this.r || this.yswitch < 0) {
         this.ydirection *= -1;
         this.yswitch = random(150);
     }
+    this.xswitch = this.xswitch - 1;
+    this.yswitch = this.yswitch - 1;
   }
 
   intersect(other) {

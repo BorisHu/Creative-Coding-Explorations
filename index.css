@@ -1,0 +1,55 @@
+.picture {
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+  
+  .picture-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  .title {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    text-align: center;
+    width: 300px;
+    color: black;
+    opacity: 0;
+  }
+  
+  .picture-container:hover .picture {
+    opacity: 0;
+  }
+  
+  .picture-container:hover .title {
+    opacity: 1;
+  }
+  
+  
+  .picture, .title {
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  body {
+    background-color: hsl(60deg 7% 87%);
+    font-family: Calisto MT, Garamond, Cambria;
+    color: black;
+  }
