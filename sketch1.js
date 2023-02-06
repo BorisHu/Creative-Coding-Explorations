@@ -8,6 +8,12 @@
 // Trail Sketch: https://editor.p5js.org/codingtrain/sketches/9Ve9S6Mx
 
 let bubbles = [];
+let mySound;
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('sound.mp3');
+}
 
 function setup() {
   createCanvas(600, 600);
@@ -25,11 +31,12 @@ function mousePressed() {
     if (bubbles[i].contains(mouseX, mouseY)) {
       bubbles.splice(i, 1);
       let r = random(20, 40);
-    let x = random(r, (width-r));
-    let y = random(r, (height-r));
-    let b = new Bubble(x, y, r);
-    bubbles.push(b);
-}
+      let x = random(r, (width-r));
+      let y = random(r, (height-r));
+      let b = new Bubble(x, y, r);
+      bubbles.push(b);
+      mySound.play();
+      }
     }
   }
     
